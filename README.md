@@ -56,9 +56,6 @@ Esto genera:
 - `model/asl_cnn.h5` — pesos del modelo entrenado
 - `model/labels.json` — mapa de índices a letras
 
-**Importante:** entrena esto ANTES de tu presentación, no en vivo. El entrenamiento
-puede tardar varios minutos según tu hardware.
-
 ## 4. Correr la demo en vivo
 
 ```bash
@@ -69,20 +66,6 @@ python webcam_demo.py
 - Presiona `b` para alternar el modo binarizado (blanco y negro), útil si el fondo
   de tu salón distrae mucho al modelo.
 - Presiona `q` para salir.
-
-## Notas para la presentación
-
-- El dataset no incluye las letras **J** y **Z** porque en lengua de señas real
-  requieren movimiento, no solo una postura estática — buen dato para mencionar
-  al público.
-- Si el modelo falla mucho en vivo, casi siempre es un problema de **iluminación**
-  o de que el **fondo real es distinto al fondo del dataset** (que son imágenes
-  ya recortadas y centradas en la mano). Es un buen punto para hablar de la
-  importancia de la calidad y variedad de los datos de entrenamiento.
-- Ten un video de respaldo grabado por si hay problemas técnicos de último minuto
-  (cámara, drivers, permisos del sistema operativo).
-- Considera limitar la demo en vivo a 5-8 letras claramente distintas entre sí
-  (evita letras muy parecidas como M, N, S) para una demo más robusta y confiable.
 
 ## Estructura del modelo
 
@@ -97,6 +80,3 @@ Input (28x28x1)
  → Dense(256) + Dropout(0.5)
  → Dense(24, softmax)
 ```
-
-Suficientemente simple para explicar en una presentación, pero con Batch
-Normalization y Dropout para ilustrar buenas prácticas de regularización.
